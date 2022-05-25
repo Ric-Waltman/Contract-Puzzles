@@ -7,6 +7,10 @@ describe("Game2", function() {
     await game.deployed();
 
     // press all the right switches to win this stage
+    let switchOnPromises = [20, 47, 212].map((value) => {
+      return game.switchOn(value);
+    });
+    await Promise.all(switchOnPromises);
 
     await game.win();
 
